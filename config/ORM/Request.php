@@ -83,20 +83,19 @@ class RequestOrm {
     }
 
     public function postTicketORM($titleOfTicket, $descriptionOfTicket, $nameOfService) {
-        $Orm = new RequestOrm();
         $idService = $this->findIdOfService($nameOfService)['idservice'];
         $date = date("Y/m/d");
         $status = 'non resolu';
         try {
             $query = $this->db->prepare("INSERT INTO `ticket`(`title`, `description`, `date`, `status`, `service_idservice`) 
-            VALUES (`title` = :title, `description` = :description, `date` = :date, `status` = :status, `service_idservice` = :serviceId");
+            VALUES (:title, :description, :date, :status, :serviceId)");
             $query->setFetchMode(\PDO::FETCH_CLASS, 'Config/ORM/RequestOrm');
             $query->execute(['title' => $titleOfTicket,
                             'description' => $descriptionOfTicket,
                             'date' => $date,
                             'status' => $status,
                             'serviceId' => $idService]);
-                            
+
             echo "Done";
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
@@ -106,7 +105,3 @@ class RequestOrm {
 
 
 }
-
-
-
-// INSERT INTO `ticket`(`title`, `description`, `date`, `status`, `service_idservice`) VALUES ([value-2],[value-3],[value-4],[value-5],[value-6])
