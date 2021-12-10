@@ -3,7 +3,9 @@
 
 Pour utiliser cette application. Il est conseillé d'utiliser Postman
 
-Lancer d'abord une instance avec : php -S localhost:8080
+- Lancer d'abord une instance avec : php -S localhost:8080
+- Utiliser ticket.sq pour créer votre base de données.
+
 
 Route et argument.
 
