@@ -83,7 +83,6 @@ class API {
         $service = $data->section;
         $description = $data->description;
         $result = $Orm->postTicketORM($title, $description, $service);
-        var_dump($result);
     }
 
 

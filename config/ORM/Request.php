@@ -96,7 +96,7 @@ class RequestOrm {
                             'date' => $date,
                             'status' => $status,
                             'serviceId' => $idService]);
-
+                            
             echo "Done";
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
