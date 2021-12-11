@@ -36,7 +36,6 @@ class RequestOrm {
 
 
     public function findBy($id,$table) {
-        
         try {
             $query = $this->db->prepare("SELECT * FROM $table WHERE idticket = :id");
             $query->setFetchMode(\PDO::FETCH_CLASS, 'Config/ORM/RequestOrm');
@@ -51,7 +50,6 @@ class RequestOrm {
     }
 
     public function findCommentsOf($id) {
-        
         try {
             $query = $this->db->prepare("SELECT * FROM `comment` WHERE ticket_idticket = :id");
             $query->setFetchMode(\PDO::FETCH_CLASS, 'Config/ORM/RequestOrm');
